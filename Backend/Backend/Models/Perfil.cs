@@ -9,6 +9,10 @@ namespace Backend.Models
 {
     public class Perfil
     {
+        public Perfil()
+        {
+            directores = new HashSet<DireccionGeneral>();
+        }
         [Key]
         public int id_perfil { get; set; }
 
@@ -33,5 +37,7 @@ namespace Backend.Models
         [StringLength(1, ErrorMessage = "El {0} debe ser máximo {1} carácteres")]
         [Display(Name = "Calificación")]
         public string? calificacion { get; set; }
+        public Referencia? id_referencia { get; set; }
+        public virtual ICollection<DireccionGeneral> directores { get; set; }
     }
 }

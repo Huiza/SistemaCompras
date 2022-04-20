@@ -11,6 +11,8 @@ namespace Backend.Models
     {
 
         [Key]
+        public int id_cotizacion { get; set; }
+
         [Column(TypeName = "varchar=17")]
         [StringLength(17, ErrorMessage = "El {0} debe ser máximo {1} carácteres")]
         [Display(Name = "NIT")]

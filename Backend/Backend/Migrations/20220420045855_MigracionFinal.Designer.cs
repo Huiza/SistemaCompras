@@ -4,6 +4,7 @@ using Backend;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220420045855_MigracionFinal")]
+    partial class MigracionFinal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -160,11 +162,9 @@ namespace Backend.Migrations
 
             modelBuilder.Entity("Backend.Models.Cotizacion", b =>
                 {
-                    b.Property<int>("id_cotizacion")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_cotizacion"), 1L, 1);
+                    b.Property<string>("nit")
+                        .HasMaxLength(17)
+                        .HasColumnType("varchar=17");
 
                     b.Property<string>("empresanit")
                         .HasColumnType("varchar=17");
@@ -179,11 +179,7 @@ namespace Backend.Migrations
                     b.Property<int?>("id_detalle1")
                         .HasColumnType("int");
 
-                    b.Property<string>("nit")
-                        .HasMaxLength(17)
-                        .HasColumnType("varchar=17");
-
-                    b.HasKey("id_cotizacion");
+                    b.HasKey("nit");
 
                     b.HasIndex("empresanit");
 

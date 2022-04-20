@@ -9,6 +9,12 @@ namespace Backend.Models
 {
     public class Usuario
     {
+        public Usuario()
+        {
+            directores = new HashSet<DireccionGeneral>();
+            privilegios = new HashSet<Privilegio>();
+            contratos = new HashSet<Contrato>();
+        }
         [Key]
         public int id_usuario { get; set; }
 
@@ -31,6 +37,9 @@ namespace Backend.Models
         public string? password { get; set; }
 
         public Rol? id_rol { get; set; }
+        public virtual ICollection<DireccionGeneral> directores { get; set; }
+        public virtual ICollection<Privilegio> privilegios { get; set; }
+        public virtual ICollection<Contrato> contratos { get; set; }
 
     }
 }

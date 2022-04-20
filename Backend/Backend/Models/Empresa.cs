@@ -14,6 +14,8 @@ namespace Backend.Models
             contactos = new HashSet<AgendaTelefonica>();
             cotizaciones = new HashSet<Cotizacion>();
             evaluaciones = new HashSet<Evaluacion>();
+            img_establecimientos = new HashSet<ImagenEstablecimiento>();
+            contratos = new HashSet<Contrato>();
         }
 
         [Key]
@@ -50,13 +52,13 @@ namespace Backend.Models
         [Column(TypeName = "varchar=9")]
         [StringLength(9, ErrorMessage = "El {0} debe ser máximo {1} carácteres")]
         [Display(Name = "Fax")]
-        public string? Fax { get; set; }
+        public string? fax { get; set; }
 
         [Required]
         [Column(TypeName = "varchar=9")]
         [StringLength(9, ErrorMessage = "El {0} debe ser máximo {1} carácteres")]
         [Display(Name = "Teléfono móvil")]
-        public string? telefonoMovil { get; set; }
+        public string? telefono_movil { get; set; }
 
         [Required]
         [Column(TypeName = "varchar=150")]
@@ -74,16 +76,21 @@ namespace Backend.Models
         [Column(TypeName = "varchar=17")]
         [StringLength(17, ErrorMessage = "El {0} debe ser máximo {1} carácteres")]
         [Display(Name = "Número de Registro de Contribuyente(NRC)")]
-        public string? Nrc { get; set; }
+        public string? nrc { get; set; }
 
         [Required]
-        [Column(TypeName = "varchar=100")]
         [Display(Name = "Número de años o rubro")]
         public int? rubro { get; set; }
 
         [Required]
-        [Column(TypeName = "varchar=5")]
-        [Display(Name = "Número de años o rubro")]
+        [Column(TypeName = "varchar=150")]
+        [Display(Name = "Logo de la empresa")]
+        public string? logo { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar=150")]
+        [Display(Name = "Imagen ubicación geográfica")]
+        public string? ubicacion_geografica{ get; set; }
 
         public Perfil? id_perfil { get; set; }
 
@@ -92,5 +99,7 @@ namespace Backend.Models
         public virtual ICollection<AgendaTelefonica>contactos { get; set; }
         public virtual ICollection<Cotizacion> cotizaciones { get; set; }
         public virtual ICollection<Evaluacion> evaluaciones{ get; set; }
+        public virtual ICollection<ImagenEstablecimiento> img_establecimientos { get; set; }
+        public virtual ICollection<Contrato> contratos { get; set; }
     }
 }
