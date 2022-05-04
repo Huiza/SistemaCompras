@@ -1,0 +1,23 @@
+<h5>Listado de empresas</h5>
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Representante</th>
+    <th scope="col">Rubro</th>
+    <th scope="col">Acciones</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let empresa of empresas">
+    <th scope="row">1</th>
+    <td>{{empresa.nombre}}</td>
+    <td>{{empresa.representante}}</td>
+    <td>{{empresa.rubro}}</td>
+    <td><i class="far fa-edit text-info"></i></td>
+    <td><i class="fa-solid fa-trash-can text-danger"></i></td>
+  </tr>
+</tbody>
+</table>
+  
